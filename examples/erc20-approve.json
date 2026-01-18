@@ -1,0 +1,26 @@
+{
+  "description": "Approve Uniswap Router to spend unlimited USDC",
+  "request": {
+    "from": "0x742d35Cc6634C0532925a3b844Bc9e7595f0Ab2d",
+    "to": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "value": "0x0",
+    "data": "0x095ea7b3000000000000000000000000e592427a0aece92de3edee1f18e0157c05861564ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+  },
+  "notes": [
+    "This approves unlimited token spending",
+    "Contract: 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (USDC)",
+    "Function: approve(address spender, uint256 amount)",
+    "Spender: 0xe592427a0AEce92De3Edee1F18E0157C05861564 (Uniswap V3 Router)",
+    "Amount: MAX_UINT256 (unlimited)",
+    "WARNING: Unlimited approvals are convenient but risky",
+    "Replace 'from' with your address"
+  ],
+  "calldata_breakdown": {
+    "selector": "0x095ea7b3",
+    "function": "approve(address,uint256)",
+    "params": {
+      "spender": "0xe592427a0AEce92De3Edee1F18E0157C05861564",
+      "amount": "MAX_UINT256 (unlimited)"
+    }
+  }
+}

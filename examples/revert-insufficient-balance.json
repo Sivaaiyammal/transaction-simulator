@@ -1,0 +1,25 @@
+{
+  "description": "Transfer that will fail due to insufficient balance",
+  "request": {
+    "from": "0x0000000000000000000000000000000000000001",
+    "to": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "value": "0x0",
+    "data": "0xa9059cbb000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa9604500000000000000000000000000000000000000000000000000000000e8d4a51000"
+  },
+  "notes": [
+    "This transaction is expected to FAIL",
+    "The 'from' address (0x0...001) has no USDT balance",
+    "Contract: 0xdAC17F958D2ee523a2206206994597C13D831ec7 (USDT)",
+    "Function: transfer(address to, uint256 amount)",
+    "Amount: 1,000,000 USDT",
+    "Expected error: 'ERC20: insufficient balance' or similar"
+  ],
+  "expected_result": {
+    "success": false,
+    "error_type": "revert",
+    "possible_messages": [
+      "ERC20: transfer amount exceeds balance",
+      "insufficient balance"
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Transfer 100 USDT to another address",
+  "request": {
+    "from": "0x742d35Cc6634C0532925a3b844Bc9e7595f0Ab2d",
+    "to": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "value": "0x0",
+    "data": "0xa9059cbb000000000000000000000000d8da6bf26964af9d7eed9e03e53415d37aa960450000000000000000000000000000000000000000000000000000000005f5e100"
+  },
+  "notes": [
+    "This calls the USDT transfer function",
+    "Contract: 0xdAC17F958D2ee523a2206206994597C13D831ec7 (USDT)",
+    "Function: transfer(address to, uint256 amount)",
+    "Recipient: 0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+    "Amount: 100 USDT (100000000 in 6 decimals)",
+    "Replace 'from' with your address"
+  ],
+  "calldata_breakdown": {
+    "selector": "0xa9059cbb",
+    "function": "transfer(address,uint256)",
+    "params": {
+      "to": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+      "amount": "100000000 (100 USDT)"
+    }
+  }
+}

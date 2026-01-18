@@ -1,0 +1,30 @@
+{
+  "description": "Swap ETH for USDC on Uniswap V3",
+  "request": {
+    "from": "0x742d35Cc6634C0532925a3b844Bc9e7595f0Ab2d",
+    "to": "0xe592427a0AEce92De3Edee1F18E0157C05861564",
+    "value": "100000000000000000",
+    "data": "0x414bf389000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000a0b86991c6218b36c1d19d4a2e9eb0ce3606eb4800000000000000000000000000000000000000000000000000000000000001f4000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0ab2d00000000000000000000000000000000000000000000000000000000ffffffff000000000000000000000000000000000000000000000000016345785d8a00000000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "notes": [
+    "This swaps 0.1 ETH for USDC via Uniswap V3",
+    "Contract: 0xe592427a0AEce92De3Edee1F18E0157C05861564 (Uniswap V3 SwapRouter)",
+    "Function: exactInputSingle(params)",
+    "Input: 0.1 ETH (WETH)",
+    "Output: USDC (minimum amount set)",
+    "Replace 'from' with your address and update recipient"
+  ],
+  "calldata_breakdown": {
+    "selector": "0x414bf389",
+    "function": "exactInputSingle((address,address,uint24,address,uint256,uint256,uint160))",
+    "params": {
+      "tokenIn": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2 (WETH)",
+      "tokenOut": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48 (USDC)",
+      "fee": "500 (0.05% pool)",
+      "recipient": "sender address",
+      "deadline": "max uint256",
+      "amountIn": "0.1 ETH",
+      "amountOutMinimum": "0 (no slippage protection)"
+    }
+  }
+}

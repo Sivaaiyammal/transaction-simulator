@@ -236,6 +236,20 @@ const KNOWN_CUSTOM_ERRORS: Record<string, { signature: string; title: string; ex
     suggestion: "Try a smaller amount or different trading pair.",
   },
 
+  // ERC2612 Permit & Signatures
+  "0xddafbaef": {
+    signature: "InvalidSignature()",
+    title: "Invalid Signature",
+    explanation: "The signature provided for the permit or authorization is invalid.",
+    suggestion: "Check that you are signing the correct data with the correct wallet.",
+  },
+  "0x1d1b9d83": {
+    signature: "PermitExpired()",
+    title: "Permit Expired",
+    explanation: "The deadline for this permit signature has passed.",
+    suggestion: "Generate a new signature with a future deadline.",
+  },
+
   // OpenZeppelin Access Control
   "0x118cdaa7": {
     signature: "OwnableUnauthorizedAccount(address)",
@@ -248,6 +262,12 @@ const KNOWN_CUSTOM_ERRORS: Record<string, { signature: string; title: string; ex
     title: "Invalid Owner",
     explanation: "The provided owner address is invalid.",
     suggestion: "Check the owner address parameter.",
+  },
+  "0x82b42900": {
+    signature: "Unauthorized()",
+    title: "Not Authorized",
+    explanation: "You do not have the required role or permission to perform this action.",
+    suggestion: "Check if your wallet has the necessary permissions on this contract.",
   },
   "0xe07c8dba": {
     signature: "EnforcedPause()",

@@ -37,12 +37,13 @@ export async function simulateTx(
         .estimateGas(tx)
         .then((gas) => gas.toString())
         .catch(() => "unknown"),
-      tokenAnalyzer.analyzeTransaction(
-        input.from,
-        input.to,
-        input.data,
-        input.value
-      ),
+      // Handle token analysis failures gracefully so they don't fail the whole simulation
+      tokenAnalyzer
+        .analyzeTransaction(input.from, input.to, input.data, input.value)
+        .catch((err) => {
+          console.warn("Token analysis failed:", err);
+          return { transfers: [], approvals: [] };
+        }),
     ]);
 
     const ethTransfer = buildEthTransfer(input.from, input.to, input.value);

@@ -57,27 +57,42 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white rounded-lg border border-gray-200 p-6">
-      <h2 className="text-lg font-semibold text-gray-900 mb-4">
-        Transaction Details
-      </h2>
+    <form onSubmit={handleSubmit} className="bg-white rounded-2xl card-shadow p-6">
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 bg-gradient-main rounded-xl flex items-center justify-center">
+          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+        </div>
+        <div>
+          <h2 className="text-lg font-bold text-gray-900">Transaction Details</h2>
+          <p className="text-xs text-gray-500">Enter the transaction parameters</p>
+        </div>
+      </div>
 
       {/* From Address (Read-only) */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           From Address
         </label>
-        <input
-          type="text"
-          value={address || "Connect wallet to continue"}
-          disabled
-          className="w-full px-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-500 text-sm"
-        />
+        <div className="relative">
+          <input
+            type="text"
+            value={address || "Connect wallet to continue"}
+            disabled
+            className="w-full px-4 py-3 bg-slate-50 border border-slate-200 rounded-xl text-gray-500 text-sm font-mono"
+          />
+          {address && (
+            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">
+              Connected
+            </span>
+          )}
+        </div>
       </div>
 
       {/* To Address */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           To Address <span className="text-red-500">*</span>
         </label>
         <input
@@ -87,28 +102,33 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
           onChange={handleChange}
           placeholder="0x..."
           required
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-eth-500 focus:border-eth-500 outline-none"
+          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-eth-500/20 focus:border-eth-500 outline-none transition-all"
         />
       </div>
 
       {/* Value (ETH) */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           Value (ETH)
         </label>
-        <input
-          type="text"
-          name="value"
-          value={formData.value}
-          onChange={handleChange}
-          placeholder="0.0"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-eth-500 focus:border-eth-500 outline-none"
-        />
+        <div className="relative">
+          <input
+            type="text"
+            name="value"
+            value={formData.value}
+            onChange={handleChange}
+            placeholder="0.0"
+            className="w-full px-4 py-3 pr-16 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-eth-500/20 focus:border-eth-500 outline-none transition-all"
+          />
+          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold text-gray-400">
+            ETH
+          </span>
+        </div>
       </div>
 
       {/* Data (Calldata) */}
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+      <div className="mb-5">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           Data (Calldata)
         </label>
         <textarea
@@ -117,16 +137,19 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
           onChange={handleChange}
           placeholder="0x..."
           rows={3}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm font-mono focus:ring-2 focus:ring-eth-500 focus:border-eth-500 outline-none resize-none"
+          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm font-mono focus:ring-2 focus:ring-eth-500/20 focus:border-eth-500 outline-none transition-all resize-none"
         />
-        <p className="text-xs text-gray-500 mt-1">
+        <p className="text-xs text-gray-400 mt-2 flex items-center gap-1">
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
           Optional: hex-encoded calldata for contract interactions
         </p>
       </div>
 
       {/* Gas Limit */}
       <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="block text-sm font-semibold text-gray-700 mb-2">
           Gas Limit
         </label>
         <input
@@ -135,7 +158,7 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
           value={formData.gasLimit}
           onChange={handleChange}
           placeholder="Auto-estimate"
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-eth-500 focus:border-eth-500 outline-none"
+          className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:ring-2 focus:ring-eth-500/20 focus:border-eth-500 outline-none transition-all"
         />
       </div>
 
@@ -143,7 +166,7 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
       <button
         type="submit"
         disabled={!isConnected || isLoading}
-        className="w-full bg-eth-600 hover:bg-eth-700 disabled:bg-gray-300 disabled:cursor-not-allowed text-white py-3 rounded-lg font-medium transition-colors flex items-center justify-center gap-2"
+        className="w-full btn-gradient text-white py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2"
       >
         {isLoading ? (
           <>
@@ -195,7 +218,10 @@ export function SimulationForm({ onSimulate, isLoading }: Props) {
       </button>
 
       {!isConnected && (
-        <p className="text-center text-sm text-gray-500 mt-3">
+        <p className="text-center text-sm text-gray-500 mt-4 flex items-center justify-center gap-2">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+          </svg>
           Connect your wallet to simulate transactions
         </p>
       )}

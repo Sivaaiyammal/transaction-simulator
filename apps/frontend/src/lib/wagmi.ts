@@ -1,19 +1,20 @@
 import { http, createConfig } from "wagmi";
-import { mainnet } from "wagmi/chains";
+import { mainnet, sepolia } from "wagmi/chains";
 import { injected, metaMask } from "wagmi/connectors";
 
 /**
  * Wagmi configuration for wallet connection
- * Currently supports Ethereum Mainnet with MetaMask
+ * Supports Ethereum Mainnet and Sepolia Testnet
  */
 export const config = createConfig({
-  chains: [mainnet],
+  chains: [sepolia, mainnet],
   connectors: [
     injected(),
     metaMask(),
   ],
   transports: {
     [mainnet.id]: http(),
+    [sepolia.id]: http(),
   },
 });
 

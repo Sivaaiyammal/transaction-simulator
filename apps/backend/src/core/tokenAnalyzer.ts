@@ -53,7 +53,7 @@ export class TokenAnalyzer {
     from: string,
     to: string,
     data: string,
-    value: string
+    _value: string
   ): Promise<{
     transfers: TokenTransfer[];
     approvals: ApprovalChange[];
@@ -132,7 +132,7 @@ export class TokenAnalyzer {
           });
         }
       }
-    } catch (error) {
+    } catch {
       // Silently fail - the target contract may not be ERC20
       // This is expected for non-token contracts
     }

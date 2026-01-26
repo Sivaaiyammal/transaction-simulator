@@ -1,7 +1,4 @@
-import {
-  SimulationRequest,
-  ValidatedSimulationRequest,
-} from "../types/simulation";
+import { ValidatedSimulationRequest } from "../types/simulation";
 
 /**
  * Custom error class for validation failures

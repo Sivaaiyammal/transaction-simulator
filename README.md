@@ -1,6 +1,6 @@
 # Transaction Simulator
 
-**Preview Ethereum transactions before sending. Protect your funds with simulation.**
+**An open-source simulation engine for previewing Ethereum transactions before sending.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
@@ -20,7 +20,7 @@ Every year, users lose millions of dollars to failed transactions, unexpected re
 
 ## The Solution
 
-Transaction Simulator lets you **preview any transaction before sending it on-chain**. See exactly what will happen - gas costs, token transfers, approvals, and potential errors - without risking your funds.
+This **simulation engine** lets you **preview any transaction before sending it on-chain**. See exactly what will happen - gas costs, token transfers, approvals, and potential errors - without risking your funds.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -62,7 +62,7 @@ Transaction Simulator lets you **preview any transaction before sending it on-ch
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/transaction-simulator.git
+git clone https://github.com/anthropics/transaction-simulator.git
 cd transaction-simulator
 
 # Install backend dependencies
@@ -167,7 +167,9 @@ Simulate a transaction and return detailed analysis.
     "success": false,
     "error": {
       "type": "revert",
-      "message": "ERC20: insufficient balance",
+      "message": "Insufficient Balance",
+      "userMessage": "You don't have enough tokens to complete this transfer.",
+      "suggestion": "Check your token balance and try a smaller amount.",
       "raw": "0x08c379a0..."
     },
     "gasEstimate": null
@@ -243,4 +245,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Built for the Ethereum ecosystem.**
+**Open-source simulation engine built for the Ethereum ecosystem.**

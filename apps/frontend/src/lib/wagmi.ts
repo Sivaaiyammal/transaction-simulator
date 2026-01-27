@@ -1,18 +1,21 @@
 import { http, createConfig } from "wagmi";
-import { mainnet, sepolia } from "wagmi/chains";
+import { arbitrum, arbitrumSepolia, mainnet, sepolia } from "wagmi/chains";
 import { injected, metaMask } from "wagmi/connectors";
 
 /**
  * Wagmi configuration for wallet connection
- * Supports Ethereum Mainnet and Sepolia Testnet
+ * Primary support for Arbitrum One and Arbitrum Sepolia
+ * Also supports Ethereum Mainnet and Sepolia for compatibility
  */
 export const config = createConfig({
-  chains: [sepolia, mainnet],
+  chains: [arbitrum, arbitrumSepolia, mainnet, sepolia],
   connectors: [
     injected(),
     metaMask(),
   ],
   transports: {
+    [arbitrum.id]: http(),
+    [arbitrumSepolia.id]: http(),
     [mainnet.id]: http(),
     [sepolia.id]: http(),
   },

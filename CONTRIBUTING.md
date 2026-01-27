@@ -1,6 +1,6 @@
 # Contributing to Transaction Simulator
 
-Thank you for your interest in contributing to the Transaction Simulator! This document provides guidelines for contributing to the project.
+Thank you for your interest in contributing to the Transaction Simulator! We are building the best simulation engine for the **Arbitrum ecosystem**, and we need your help to support the growing number of DeFi protocols and dApps on Arbitrum.
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ Thank you for your interest in contributing to the Transaction Simulator! This d
 - Node.js 18 or higher
 - npm or yarn
 - Git
-- An Ethereum RPC URL (Alchemy, Infura, or public RPC)
+- An Arbitrum RPC URL (Alchemy, Infura, or public RPC)
 
 ### Development Setup
 
@@ -194,6 +194,16 @@ apps/frontend/src/
 3. Create new interface (e.g., `NFTTransfer`)
 4. Update `SimulationSuccess` type
 5. Create frontend display component
+
+### Adding Support for Arbitrum Protocols
+
+We want to support as many Arbitrum-native protocols as possible (GMX, Camelot, Radiant, etc.).
+
+1. **Identify the Protocol**: Choose a protocol that needs better simulation support.
+2. **Add ABI Interfaces**: Add relevant function selectors and interfaces to `tokenAnalyzer.ts` or create a new protocol analyzer.
+3. **Implement Detection Logic**: Update the analyzer to detect interactions with this protocol.
+4. **Add Custom Errors**: If the protocol has specific revert reasons, add them to `KNOWN_CUSTOM_ERRORS` in `errorDecoder.ts`.
+5. **Test**: Add a test case in `examples/` with a transaction for that protocol.
 
 ### Adding a New Chain
 

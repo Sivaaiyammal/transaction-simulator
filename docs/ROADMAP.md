@@ -4,7 +4,7 @@ This document outlines the development roadmap for the Transaction Simulator pro
 
 ## Vision
 
-Create the most comprehensive, user-friendly transaction simulation tool for Ethereum users. Our goal is to help users understand exactly what will happen before they send any transaction, preventing costly mistakes and protecting against malicious contracts.
+Create the most comprehensive, user-friendly transaction simulation tool for Arbitrum and Ethereum users. Our goal is to help users understand exactly what will happen before they send any transaction, preventing costly mistakes and protecting against malicious contracts.
 
 ---
 
@@ -41,6 +41,12 @@ The foundation of the Transaction Simulator with essential features for safe tra
   - Transaction form with validation
   - Clear result visualization
   - Mobile-responsive design
+
+- [x] **Arbitrum Support**
+  - Arbitrum One mainnet RPC integration
+  - Arbitrum Sepolia testnet support
+  - Wallet connection with Arbitrum chains
+  - Arbitrum-branded UI and messaging
 
 ---
 
@@ -80,13 +86,19 @@ Deeper transaction analysis for advanced users and DeFi interactions.
   - Suggested fixes for known errors
   - Link to relevant documentation
 
+- [ ] **Arbitrum Protocol Support**
+  - GMX trading error handling
+  - Camelot DEX integration
+  - Radiant lending protocol support
+  - L2-specific gas optimization hints
+
 ---
 
-## Version 1.2 - Multi-Chain Support
+## Version 1.2 - Multi-Chain Expansion
 
 **Status: Planned**
 
-Expand beyond Ethereum mainnet to support popular L2s and sidechains.
+Expand to support additional L2s and sidechains beyond Arbitrum.
 
 ### Features
 
@@ -94,11 +106,6 @@ Expand beyond Ethereum mainnet to support popular L2s and sidechains.
   - Polygon PoS mainnet
   - Polygon-specific token detection
   - Bridge transaction support
-
-- [ ] **Arbitrum**
-  - Arbitrum One mainnet
-  - L2-specific gas estimation
-  - Cross-layer message detection
 
 - [ ] **Optimism**
   - OP Mainnet support
@@ -109,7 +116,7 @@ Expand beyond Ethereum mainnet to support popular L2s and sidechains.
   - Base mainnet support
   - Coinbase integration hints
 
-- [ ] **Chain Switching**
+- [ ] **Enhanced Chain Switching**
   - Automatic chain detection from wallet
   - Manual chain selection
   - Per-chain RPC configuration

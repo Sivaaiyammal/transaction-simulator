@@ -1,10 +1,10 @@
 # Transaction Simulator
 
-**An open-source simulation engine for previewing Ethereum transactions before sending.**
+**An open-source simulation engine for previewing Arbitrum transactions before sending.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Ethereum](https://img.shields.io/badge/Ethereum-Mainnet-627eea)](https://ethereum.org/)
+[![Arbitrum](https://img.shields.io/badge/Arbitrum-One-2D374B)](https://arbitrum.io/)
 
 ---
 
@@ -62,7 +62,7 @@ This **simulation engine** lets you **preview any transaction before sending it 
 
 ```bash
 # Clone the repository
-git clone https://github.com/anthropics/transaction-simulator.git
+git clone https://github.com/Sivaaiyammal/transaction-simulator.git
 cd transaction-simulator
 
 # Install backend dependencies
@@ -71,7 +71,7 @@ npm install
 
 # Configure environment
 cp .env.example .env
-# Edit .env and add your ETHEREUM_RPC_URL
+# Edit .env and add your Arbitrum RPC URL
 
 # Start the backend
 npm run dev
@@ -114,8 +114,8 @@ Open http://localhost:3000 in your browser.
                             │ eth_call / estimateGas
                             ▼
                     ┌───────────────┐
-                    │ Ethereum RPC  │
-                    │   (Mainnet)   │
+                    │ Arbitrum RPC  │
+                    │ (One/Sepolia) │
                     └───────────────┘
 ```
 
@@ -221,9 +221,10 @@ See [docs/ROADMAP.md](docs/ROADMAP.md) for the full roadmap.
 - [ ] Internal transaction tracing
 - [ ] Gas optimization suggestions
 - [ ] Transaction history
+- [ ] Arbitrum-native protocol support (GMX, Camelot, Radiant)
 
 ### Future (v2.0)
-- [ ] Multi-chain support (Polygon, Arbitrum, Optimism)
+- [ ] Multi-chain expansion (Polygon, Optimism, Base)
 - [ ] Transaction bundles
 - [ ] Slippage prediction for swaps
 - [ ] Browser extension
@@ -245,4 +246,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-**Open-source simulation engine built for the Ethereum ecosystem.**
+**Open-source simulation engine built for the Arbitrum ecosystem.**

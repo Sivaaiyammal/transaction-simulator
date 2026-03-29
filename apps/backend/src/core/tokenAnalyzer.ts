@@ -38,7 +38,7 @@ const erc20Interface = new Interface(ERC20_ABI);
 /**
  * In-memory cache for token metadata
  */
-const tokenCache = new Map<string, TokenInfo>();
+const tokenCache = new Map<string, TokenInfo | null>();
 
 /**
  * Token Analyzer - analyzes transactions for ERC20 transfers and approvals
@@ -148,7 +148,7 @@ export class TokenAnalyzer {
 
     // Check cache first
     if (tokenCache.has(cacheKey)) {
-      return tokenCache.get(cacheKey)!;
+      return tokenCache.get(cacheKey) || null;
     }
 
     try {
@@ -163,6 +163,7 @@ export class TokenAnalyzer {
 
       // If we couldn't get a symbol, this probably isn't an ERC20 token
       if (!symbol) {
+        tokenCache.set(cacheKey, null); // Cache negative result
         return null;
       }
 
@@ -178,6 +179,7 @@ export class TokenAnalyzer {
 
       return tokenInfo;
     } catch {
+      tokenCache.set(cacheKey, null); // Cache failure as not a token
       return null;
     }
   }
